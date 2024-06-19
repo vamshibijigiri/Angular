@@ -1,0 +1,30 @@
+div {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  
+    h2 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+  
+      li {
+        background-color: #e9ecef;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        color: #212529;
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  

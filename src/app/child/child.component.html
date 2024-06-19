@@ -1,0 +1,9 @@
+<div>
+    <h2>Employees with Salary > 10000 </h2>
+    <ul>
+      <li *ngFor="let employee of highSalaryEmployees">
+        {{ employee.firstName }} {{ employee.lastName }} - ${{ employee.salary }}
+      </li>
+    </ul>
+  </div>
+  
