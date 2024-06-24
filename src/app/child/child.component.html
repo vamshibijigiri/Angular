@@ -1,9 +1,40 @@
 <div>
-    <h2>Employees with Salary > 10000 </h2>
-    <ul>
-      <li *ngFor="let employee of highSalaryEmployees">
-        {{ employee.firstName }} {{ employee.lastName }} - ${{ employee.salary }}
-      </li>
-    </ul>
-  </div>
+  <h2>Child Component</h2>
+  <ul>
+    <li *ngFor="let employee of highSalaryEmployees">
+      {{ employee.firstName }} {{ employee.lastName }} - ${{ employee.salary }}
+    </li>
+  </ul>
   
+  <h3>Add New Employee</h3>
+  <form (ngSubmit)="addEmployee()" #employeeForm="ngForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" [(ngModel)]="newEmployee.firstName" name="firstName" required>
+    <div *ngIf="employeeForm.submitted || employeeForm.controls['firstName']?.dirty">
+      <div *ngIf="!employeeForm.controls['firstName']?.valid && employeeForm.controls['firstName']?.touched">
+        First Name is required.
+      </div>
+    </div>
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" [(ngModel)]="newEmployee.lastName" name="lastName" required>
+    <div *ngIf="employeeForm.submitted || employeeForm.controls['lastName']?.dirty">
+      <div *ngIf="!employeeForm.controls['lastName']?.valid && employeeForm.controls['lastName']?.touched">
+        Last Name is required.
+      </div>
+    </div>
+    <br>
+
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" [(ngModel)]="newEmployee.salary" name="salary" required min="0">
+    <div *ngIf="employeeForm.submitted || employeeForm.controls['salary']?.dirty">
+      <div *ngIf="!employeeForm.controls['salary']?.valid && employeeForm.controls['salary']?.touched">
+        Salary is required and must be a positive number.
+      </div>
+    </div>
+    <br>
+
+    <button type="submit" [disabled]="!employeeForm.valid">Add Employee</button>
+  </form>
+</div>

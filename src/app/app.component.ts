@@ -17,8 +17,12 @@ interface Employee {
 })
 export class AppComponent {
   employees: Employee[] = [
-    { firstName: 'John', lastName: 'Doe', salary: 1200 },
+    { firstName: 'John', lastName: 'Doe', salary: 12000 },
     { firstName: 'Jane', lastName: 'Doe', salary: 8000 },
     { firstName: 'Jim', lastName: 'Beam', salary: 15000 }
   ];
+
+  addEmployee(newEmployee: Employee) {
+    this.employees.push(newEmployee);
+  }
 }

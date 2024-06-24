@@ -1,4 +1,12 @@
 <div>
-  <h1>Company Portal</h1>
-  <app-child [employees]="employees"></app-child>
+  <h1>Parent Component</h1>
+  
+  <app-child [employees]="employees" (employeeAdded)="addEmployee($event)"></app-child>
+  
+  <h2>All Employees</h2>
+  <ul>
+    <li *ngFor="let employee of employees">
+      {{ employee.firstName }} {{ employee.lastName }} - ${{ employee.salary }}
+    </li>
+  </ul>
 </div>
